@@ -67,11 +67,13 @@ Igor Golovenok Infrastructure repository
   https://github.com/express42/reddit/tree/monolith
 
   ### Files
-  - `packer/variables.json` - содержит параметры
-  - `packer/reddit-base.json` - создает image reddit-base с установленными Ruby и Mongodb
-  - `packer/reddit-full.json` - создает image reddit-full (на основе reddit-base) с готовым приложением Reddit
-  - `config-scripts/create-firewall-puma.sh` - создает firewall rules для puma server
-  - `config-scripts/create-reddit-vm.sh` - cоздает instance на основе reddit-full
+  - `packer/variables.json` - файл с переменными.
+  - `packer/app.json` - образ reddit-app-base c установленным Ruby.
+  - `packer/db.json` - образ reddit-db-base c установленным Mongodb.
+  - `packer/reddit-base.json` - образ reddit-base с установленными Ruby и Mongodb.
+  - `packer/reddit-full.json` - образ reddit-full (на основе reddit-base) с готовым приложением Reddit.
+  - `config-scripts/create-firewall-puma.sh` - скрипт для gsp, создает firewall rules - puma server
+  - `config-scripts/create-reddit-vm.sh` - крипт для gsp, cоздает instance на основе reddit-full.
   
   ### Terminal
   - Проверка на ошибки: `packer validate ./reddit-base.json`
