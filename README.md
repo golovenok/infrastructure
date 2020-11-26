@@ -30,8 +30,8 @@ Igor Golovenok Infrastructure repository
 - Подключение: `ssh -i ~/.ssh/appuser appuser@34.77.105.249`
 - Подключение через bastion: `ssh -J appuser@34.77.105.249 appuser@10.132.0.4`
 
-<details>
-  <summary>Alias `(~/.ssh/config)`</summary>
+ <details>
+  <summary>Alias (~/.ssh/config)</summary>
 
   ```
   Host bastion
@@ -47,6 +47,7 @@ Igor Golovenok Infrastructure repository
       IdentityFile ~/.ssh/appuser
   ```
 
+ </details>
 </details>
 
 <details>
@@ -64,13 +65,14 @@ Igor Golovenok Infrastructure repository
   
   ## Создание image с установленной программой Reddit (https://github.com/express42/reddit/tree/monolith)
 
-  - `packer/variables.json`, содержит параметры
-  - `packer/reddit-base.json`, создает image reddit-base с установленными Ruby и Mongodb
-  - `packer/reddit-full.json`, создает image reddit-full (на основе reddit-base) с готовым приложением Reddit
-
+  ### Files
+  - `packer/variables.json` - содержит параметры
+  - `packer/reddit-base.json` - создает image reddit-base с установленными Ruby и Mongodb
+  - `packer/reddit-full.json` - создает image reddit-full (на основе reddit-base) с готовым приложением Reddit
+  - `config-scripts/create-firewall-puma.sh` - создает firewall rules для puma server
+  - `config-scripts/create-reddit-vm.sh` - cоздает instance на основе reddit-full
+  
+  ### Terminal
   - Проверка на ошибки: `packer validate ./reddit-base.json`
   - Создание image: `packer build -var-file variables.json reddit-full.json`
-  - `create-reddit-vm.sh` - cоздание instance на основе reddit-full.
-  - `create-firewall-puma.sh` - создание firewall rules для puma server
-  
   </details>
