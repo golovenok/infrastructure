@@ -2,7 +2,7 @@
 Igor Golovenok Infrastructure repository
 
 <details>
-  <summary>Командная работа с Git </summary>
+  <summary>Git </summary>
 
 ## Основные команды Git
 
@@ -63,7 +63,8 @@ Igor Golovenok Infrastructure repository
 <details>
   <summary>Packer </summary>
   
-  ## Создание image с установленной программой Reddit (https://github.com/express42/reddit/tree/monolith)
+  ## Создание image с приложением Reddit 
+  https://github.com/express42/reddit/tree/monolith
 
   ### Files
   - `packer/variables.json` - содержит параметры
