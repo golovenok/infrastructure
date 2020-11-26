@@ -1,0 +1,8 @@
+{
+"var_project_id": "...",
+"var_machine_type": "e2-micro",
+"var_source_image_family": "ubuntu-1604-lts",
+"var_user": "...",
+"var_disk_size": "10",
+"var_network": "default"
+}

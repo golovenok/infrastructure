@@ -1,0 +1,37 @@
+{
+    "variables": {
+        "var_project_id": "",
+        "var_user": "",
+        "var_source_image_family":"",
+        "var_machine_type": "",
+        "var_disk_type": "pd-standard",
+        "var_network": "",
+        "var_disk_size":""
+        },
+   "builders": [
+   {
+   "type": "googlecompute",
+   "project_id": "{{user `var_project_id`}}",
+   "image_name": "reddit-base-{{timestamp}}",
+   "image_family": "reddit-base",
+   "source_image_family": "{{user `var_source_image_family`}}",
+   "zone": "europe-west1-b",
+   "disk_size": "{{user `var_disk_size`}}",
+   "disk_type": "{{user `var_disk_type`}}",
+   "ssh_username": "{{user `var_user`}}",
+   "machine_type": "{{user `var_machine_type`}}"
+   }
+   ],
+    "provisioners": [
+    {
+    "type": "shell",
+    "script": "scripts/install_ruby.sh",
+    "execute_command": "sudo {{.Path}}"
+    },
+    {
+        "type": "shell",
+        "script": "scripts/install_mongodb.sh",
+        "execute_command": "sudo {{.Path}}"
+    }
+    ]
+}

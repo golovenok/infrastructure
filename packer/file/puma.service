@@ -1,0 +1,11 @@
+[Unit]
+After=syslog.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/appuser/reddit
+ExecStart=/usr/local/bin/puma
+
+[Install]
+WantedBy=multi-user.target

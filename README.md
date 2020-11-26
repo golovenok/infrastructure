@@ -2,8 +2,7 @@
 Igor Golovenok Infrastructure repository
 
 <details>
-  <summary>Командная работа с Git
-  </summary>
+  <summary>Командная работа с Git </summary>
 
 ## Основные команды Git
 
@@ -18,9 +17,60 @@ Igor Golovenok Infrastructure repository
 - Настройка удаленного репозитория : `git remote add origin git@github.com:golovenok/infrastructure.git`
 - Пушим ветку second `git push --set-upstream origin second`
 
-## SSH
+</details>
+
+<details>
+  <summary>SSH </summary>
+
+  ## SSH
 
 - Создание ключа: `ssh-keygen -t rsa -f ~/.ssh/appuser_ssh -C appuser -P ""`
-- Проверка работы агента `eval "$(ssh-agent -s)"`
-- Добавление ключа в агента `ssh-add ~/.ssh/appuser_ssh`
+- Проверка работы агента: `eval "$(ssh-agent -s)"`
+- Добавление ключа в агента: `ssh-add ~/.ssh/appuser_ssh`
+- Подключение: `ssh -i ~/.ssh/appuser appuser@34.77.105.249`
+- Подключение через bastion: `ssh -J appuser@34.77.105.249 appuser@10.132.0.4`
+
+<details>
+  <summary>Alias `(~/.ssh/config)`</summary>
+
+  ```
+  Host bastion
+      HostName 34.77.105.249
+      User appuser
+      IdentityFile ~/.ssh/appuser
+      
+
+  Host someinternalhost
+      HostName 10.132.0.4
+      User appuser
+      ProxyJump bastion
+      IdentityFile ~/.ssh/appuser
+  ```
+
 </details>
+
+<details>
+  <summary>Google Cloud Platform </summary>
+
+  ## Установка gcloud
+
+- `sudo snap install google-cloud-sdk --classic`
+- `gcloud auth application-default login`
+
+</details>
+
+<details>
+  <summary>Packer </summary>
+  
+  ## Создание image с установленной программой Reddit (https://github.com/express42/reddit/tree/monolith)
+
+  - `packer/variables.json`, содержит параметры
+  - `packer/reddit-base.json`, создает image reddit-base с установленными Ruby и Mongodb
+  - `packer/reddit-full.json`, создает image reddit-full (на основе reddit-base) с готовым приложением Reddit
+
+  - Проверка на ошибки: `packer validate ./reddit-base.json`
+  - Создание image: `packer build -var-file variables.json reddit-full.json`
+  - `create-reddit-vm.sh` - cоздание instance на основе reddit-full.
+  - `create-firewall-puma.sh` - создание firewall rules для puma server
+  
+  </details>
