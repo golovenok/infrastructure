@@ -31,10 +31,9 @@ Igor Golovenok Infrastructure repository
 - Подключение: `ssh -i ~/.ssh/appuser appuser@34.77.105.249`
 - Подключение через bastion: `ssh -J appuser@34.77.105.249 appuser@10.132.0.4`
 
- <details>
-  <summary>Alias (~/.ssh/config)</summary>
+  <summary>~/.ssh/config</summary>
 
-  ```
+```
   Host bastion
       HostName 34.77.105.249
       User appuser
@@ -46,25 +45,28 @@ Igor Golovenok Infrastructure repository
       User appuser
       ProxyJump bastion
       IdentityFile ~/.ssh/appuser
-  ```
-
- </details>
+```
 </details>
 
 <details>
   <summary>Google Cloud Platform </summary>
 
-  ## Установка gcloud
+  ### Установка gcloud
 
 - `sudo snap install google-cloud-sdk --classic`
 - `gcloud auth application-default login`
+
+  ### Files
+- `gsp/create-reddit-vm.sh` - cкрипт cоздает instance "reddit-app"
+- `gsp/create-firewall-puma.sh` - скрипт создает firewall rules "default-puma-server"
+
 
 </details>
 
 <details>
   <summary>Packer </summary>
   
-  ## Создание image с приложением Reddit 
+  ## Создание image с приложением Reddit в gsp
   https://github.com/express42/reddit/tree/monolith
 
   ### Files
@@ -73,8 +75,7 @@ Igor Golovenok Infrastructure repository
   - `packer/db.json` - образ reddit-db-base c установленным Mongodb.
   - `packer/reddit-base.json` - образ reddit-base с установленными Ruby и Mongodb.
   - `packer/reddit-full.json` - образ reddit-full (на основе reddit-base) с готовым приложением Reddit.
-  - `config-scripts/create-firewall-puma.sh` - скрипт для gsp, создает firewall rules - puma server.
-  - `config-scripts/create-reddit-vm.sh` - крипт для gsp, cоздает instance на основе reddit-full.
+
   
   ### Terminal
   - Проверка на ошибки: `packer validate ./reddit-base.json`
@@ -82,7 +83,7 @@ Igor Golovenok Infrastructure repository
 </details>
 
 <details>
-    <summary> Terraform </summary>
+    <summary>Terraform </summary>
   
   ## Создание VM instances в gcp с помощью Terraform
 
