@@ -31,12 +31,9 @@ https://wiki.archlinux.org/index.php/SSH_keys
   - Подключение: `ssh -i ~/.ssh/appuser appuser@34.77.105.249`
   - Подключение через bastion: `ssh -J appuser@34.77.105.249 appuser@10.132.0.4`
   
-  ### Копирование файлов через SSH
-https://www.shellhacks.com/ru/copy-files-ssh-10-examples
-
-<summary>Алиас (~/.ssh/config) </summary>
 
 <details>
+  <summary>Алиас (~/.ssh/config) </summary>
 
 ```
   Host bastion
@@ -52,6 +49,9 @@ https://www.shellhacks.com/ru/copy-files-ssh-10-examples
       IdentityFile ~/.ssh/appuser
 ```
 </details>
+
+### Копирование файлов через SSH
+https://www.shellhacks.com/ru/copy-files-ssh-10-examples
 
 </details>
 
