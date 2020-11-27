@@ -50,8 +50,7 @@ https://wiki.archlinux.org/index.php/SSH_keys
 ```
 </details>
 
-Копирование файлов через SSH: \
-https://www.shellhacks.com/ru/copy-files-ssh-10-examples
+Копирование файлов через SSH: https://www.shellhacks.com/ru/copy-files-ssh-10-examples
 
 </details>
 
