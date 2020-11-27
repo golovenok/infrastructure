@@ -35,6 +35,7 @@ Igor Golovenok Infrastructure repository
   https://www.shellhacks.com/ru/copy-files-ssh-10-examples
 
   <summary>Алиас (~/.ssh/config) </summary>
+  
   <details>
 ```
   Host bastion
@@ -50,6 +51,7 @@ Igor Golovenok Infrastructure repository
       IdentityFile ~/.ssh/appuser
 ```
   </details>
+
 </details>
 
 <details>
