@@ -35,6 +35,7 @@ https://wiki.archlinux.org/index.php/SSH_keys
 https://www.shellhacks.com/ru/copy-files-ssh-10-examples
 
 <summary>Алиас (~/.ssh/config) </summary>
+
 <details>
 
 ```
