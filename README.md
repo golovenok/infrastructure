@@ -23,6 +23,7 @@ Igor Golovenok Infrastructure repository
   <summary>SSH </summary>
 
   ## SSH
+  https://wiki.archlinux.org/index.php/SSH_keys
 
 - Создание ключа: `ssh-keygen -t rsa -f ~/.ssh/appuser_ssh -C appuser -P ""`
 - Проверка работы агента: `eval "$(ssh-agent -s)"`
