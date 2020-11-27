@@ -25,14 +25,17 @@ Igor Golovenok Infrastructure repository
   ## SSH
   https://wiki.archlinux.org/index.php/SSH_keys
 
-- Создание ключа: `ssh-keygen -t rsa -f ~/.ssh/appuser_ssh -C appuser -P ""`
-- Проверка работы агента: `eval "$(ssh-agent -s)"`
-- Добавление ключа в агента: `ssh-add ~/.ssh/appuser_ssh`
-- Подключение: `ssh -i ~/.ssh/appuser appuser@34.77.105.249`
-- Подключение через bastion: `ssh -J appuser@34.77.105.249 appuser@10.132.0.4`
+  - Создание ключа: `ssh-keygen -t rsa -f ~/.ssh/appuser_ssh -C appuser -P ""`
+  - Проверка работы агента: `eval "$(ssh-agent -s)"`
+  - Добавление ключа в агента: `ssh-add ~/.ssh/appuser_ssh`
+  - Подключение: `ssh -i ~/.ssh/appuser appuser@34.77.105.249`
+  - Подключение через bastion: `ssh -J appuser@34.77.105.249 appuser@10.132.0.4`
+  
+  ### Копирование файлов через SSH
+  https://www.shellhacks.com/ru/copy-files-ssh-10-examples
 
-  <summary>~/.ssh/config</summary>
-
+  <summary>Алиас (~/.ssh/config) </summary>
+  <details>
 ```
   Host bastion
       HostName 34.77.105.249
@@ -46,6 +49,7 @@ Igor Golovenok Infrastructure repository
       ProxyJump bastion
       IdentityFile ~/.ssh/appuser
 ```
+  </details>
 </details>
 
 <details>
