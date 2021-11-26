@@ -246,3 +246,5 @@ https://rtfm.co.ua/ssh-rsa-klyuchi-i-ssh-agent-upravlenie-ssh-klyuchami-i-ix-par
   - `terraform destroy` - удаление
   - `terraform taint "module.vcp.google_compute_firewall.firewall_ssh` - позволяет пометить ресурс, который terraform должен пересоздать, при следующем запуске.
 </details>
+
+ss
